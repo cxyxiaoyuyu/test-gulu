@@ -13,15 +13,29 @@
             --border-color: #999;
             --border-color-hover: #666;
         }
-
+        #app {
+            margin: 20px;
+        }
+        .input {
+            margin-top: 10px;
+        }
         </style>
     </head>
     <body>
         <div id="app">
-            <g-button icon-name="setting" :loading="loading" @click="loading = !loading">按钮</g-button>
-            <g-button icon-name="setting" icon-position="icon-right">按钮</g-button>
-            <g-icon icon-name="download"></g-icon>
-            <button-group></button-group>
+            <div class="button">
+                <g-button icon-name="setting" :loading="loading" @click="loading = !loading">按钮</g-button>
+                <g-button icon-name="setting" icon-position="icon-right">按钮</g-button>
+                <g-icon icon-name="download"></g-icon>
+                <button-group></button-group>
+            </div>
+            <div class="input">
+                <g-input value="disabled" disabled></g-input>
+                <g-input value="readonly" readonly></g-input>
+                <g-input value="" error="不能为空" @change="changeInput"></g-input>
+                <g-input v-model="message"></g-input>
+                {{ message }} <button @click="message+=1">+1</button>
+            </div>
         </g-button>
     </body>
     <script src="./src/app.js"></script>
